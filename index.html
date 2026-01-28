@@ -54,7 +54,7 @@
     box-shadow:0 10px 25px rgba(255,107,138,0.35);
     cursor:pointer;
     transition:transform 0.3s ease;
-    z-index:2;
+    z-index:3;
   }
   .envelope:hover{transform:scale(1.05);}
   .envelope::before{
@@ -88,7 +88,7 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%) scale(0);
-    background:rgba(255,255,255,0.06); /* más transparente */
+    background:rgba(255,255,255,0.06);
     border:2px solid rgba(255,182,193,0.3);
     border-radius:20px;
     box-shadow:0 10px 30px rgba(255,107,138,0.25);
@@ -96,14 +96,13 @@
     max-width:420px;
     text-align:center;
     padding:35px 25px;
-    z-index:3;
+    z-index:4;
     opacity:0;
     transition:all 1s ease;
     backdrop-filter: blur(8px);
   }
   .card.open{transform:translate(-50%,-50%) scale(1);opacity:1;}
 
-  /* 💫 Animación del título */
   h1{
     font-size:24px;
     margin:0 0 12px;
@@ -115,7 +114,6 @@
     0% {opacity:0; transform:translateY(-10px);}
     100% {opacity:1; transform:translateY(0);}
   }
-  /* ✨ Brillo en el título */
   h1::after{
     content:"";
     position:absolute;
@@ -132,7 +130,6 @@
     100%{transform:translateX(100%);}
   }
 
-  /* Texto */
   p.lead{
     font-size:16px;
     color:rgba(255,255,255,0.92);
@@ -224,19 +221,28 @@ Te amo con todo mi ser, mi princesa 💖
   const emojis=["🦖","🐣","🌸","🧸","✨","🩷","🦖"];
   let confettiInterval;
 
+  // 🌟 Confeti inicial (antes de abrir)
+  setInterval(lanzarConfetti, 3500);
+
   function openLetter(){
     envelope.style.display='none';
     card.classList.add('open');
     musica.play();
     lanzarCorazones();
-    lanzarConfetti();
+    // al abrir sigue cayendo confeti también
     confettiInterval = setInterval(lanzarConfetti, 4000);
   }
 
-  document.body.addEventListener("click", ()=>{
+  document.body.addEventListener("click", (e)=>{
+    // si hace click fuera de la carta: confeti adicional
+    if(!card.classList.contains('open')){
+      if(!e.target.closest('.envelope')){
+        lanzarConfetti();
+      }
+    }
+    // si ya está abierta, seguir lanzando corazones
     if(card.classList.contains('open')){
       lanzarCorazones();
-      lanzarConfetti();
     }
   });
 
@@ -266,7 +272,6 @@ Te amo con todo mi ser, mi princesa 💖
       emoji.classList.add('emoji');
       emoji.innerText=emojis[Math.floor(Math.random()*emojis.length)];
 
-      // Evitar zona central
       let posX;
       do {
         posX = Math.random() * 100;
@@ -282,4 +287,3 @@ Te amo con todo mi ser, mi princesa 💖
 </script>
 </body>
 </html>
-
