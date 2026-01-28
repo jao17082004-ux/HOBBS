@@ -24,50 +24,31 @@
     flex-direction:column;
   }
 
-  /* 🌌 Fondo con 12 capas de estrellas intermitentes */
-  .stars, .stars2, .stars3, .stars4, .stars5, .stars6,
-  .stars7, .stars8, .stars9, .stars10, .stars11, .stars12 {
+  /* 🌌 Fondo de estrellas */
+  .stars{
     position:fixed;
     width:100%;
     height:100%;
-    top:0;
-    left:0;
-    background-repeat:no-repeat;
-    background-size:cover;
+    background:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 80% 70%, #fff, transparent),
+      radial-gradient(1px 1px at 50% 80%, #fff, transparent),
+      radial-gradient(2px 2px at 10% 90%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 70% 20%, #fff, transparent);
+    animation: twinkle 5s infinite alternate ease-in-out;
+    opacity:0.6;
     z-index:0;
   }
-
-  .stars  {background-image:radial-gradient(2px 2px at 10% 20%,#fff,transparent),radial-gradient(2px 2px at 70% 60%,#fff,transparent),radial-gradient(2px 2px at 50% 70%,#fff,transparent);animation:twinkle1 8s infinite alternate ease-in-out;opacity:0.8;}
-  .stars2 {background-image:radial-gradient(2px 2px at 15% 30%,#fff,transparent),radial-gradient(1.8px 1.8px at 80% 75%,#fff,transparent),radial-gradient(2px 2px at 25% 85%,#fff,transparent);animation:twinkle2 7s infinite alternate ease-in-out;opacity:0.75;}
-  .stars3 {background-image:radial-gradient(1.5px 1.5px at 5% 50%,#fff,transparent),radial-gradient(1.2px 1.2px at 80% 25%,#fff,transparent),radial-gradient(1.2px 1.2px at 60% 90%,#fff,transparent);animation:twinkle3 6s infinite alternate ease-in-out;opacity:0.7;}
-  .stars4 {background-image:radial-gradient(1px 1px at 12% 12%,#fff,transparent),radial-gradient(1px 1px at 45% 85%,#fff,transparent),radial-gradient(1px 1px at 92% 45%,#fff,transparent);animation:twinkle4 5s infinite alternate ease-in-out;opacity:0.65;}
-  .stars5 {background-image:radial-gradient(1px 1px at 25% 60%,#fff,transparent),radial-gradient(1px 1px at 75% 55%,#fff,transparent),radial-gradient(1px 1px at 85% 35%,#fff,transparent);animation:twinkle5 4.5s infinite alternate ease-in-out;opacity:0.6;}
-  .stars6 {background-image:radial-gradient(1px 1px at 50% 50%,#fff,transparent),radial-gradient(1px 1px at 55% 30%,#fff,transparent),radial-gradient(1px 1px at 35% 90%,#fff,transparent);animation:twinkle6 4s infinite alternate ease-in-out;opacity:0.55;}
-  .stars7 {background-image:radial-gradient(1px 1px at 20% 80%,#fff,transparent),radial-gradient(1px 1px at 80% 20%,#fff,transparent),radial-gradient(1px 1px at 60% 60%,#fff,transparent);animation:twinkle7 3.8s infinite alternate ease-in-out;opacity:0.5;}
-  .stars8 {background-image:radial-gradient(1px 1px at 40% 90%,#fff,transparent),radial-gradient(1px 1px at 90% 40%,#fff,transparent),radial-gradient(1px 1px at 70% 10%,#fff,transparent);animation:twinkle8 3.5s infinite alternate ease-in-out;opacity:0.45;}
-  .stars9 {background-image:radial-gradient(1px 1px at 30% 30%,#fff,transparent),radial-gradient(1px 1px at 10% 70%,#fff,transparent),radial-gradient(1px 1px at 95% 85%,#fff,transparent);animation:twinkle9 3s infinite alternate ease-in-out;opacity:0.4;}
-  .stars10{background-image:radial-gradient(1px 1px at 15% 15%,#fff,transparent),radial-gradient(1px 1px at 85% 55%,#fff,transparent),radial-gradient(1px 1px at 45% 45%,#fff,transparent);animation:twinkle10 2.8s infinite alternate ease-in-out;opacity:0.35;}
-  .stars11{background-image:radial-gradient(1px 1px at 70% 85%,#fff,transparent),radial-gradient(1px 1px at 35% 65%,#fff,transparent),radial-gradient(1px 1px at 50% 25%,#fff,transparent);animation:twinkle11 2.5s infinite alternate ease-in-out;opacity:0.3;}
-  .stars12{background-image:radial-gradient(1px 1px at 25% 45%,#fff,transparent),radial-gradient(1px 1px at 75% 15%,#fff,transparent),radial-gradient(1px 1px at 60% 75%,#fff,transparent);animation:twinkle12 2s infinite alternate ease-in-out;opacity:0.25;}
-
-  @keyframes twinkle1 {0%{opacity:0.5;}100%{opacity:1;}}
-  @keyframes twinkle2 {0%{opacity:0.4;}100%{opacity:0.9;}}
-  @keyframes twinkle3 {0%{opacity:0.3;}100%{opacity:0.8;}}
-  @keyframes twinkle4 {0%{opacity:0.3;}100%{opacity:0.7;}}
-  @keyframes twinkle5 {0%{opacity:0.2;}100%{opacity:0.6;}}
-  @keyframes twinkle6 {0%{opacity:0.2;}100%{opacity:0.55;}}
-  @keyframes twinkle7 {0%{opacity:0.2;}100%{opacity:0.5;}}
-  @keyframes twinkle8 {0%{opacity:0.2;}100%{opacity:0.45;}}
-  @keyframes twinkle9 {0%{opacity:0.2;}100%{opacity:0.4;}}
-  @keyframes twinkle10{0%{opacity:0.2;}100%{opacity:0.35;}}
-  @keyframes twinkle11{0%{opacity:0.2;}100%{opacity:0.3;}}
-  @keyframes twinkle12{0%{opacity:0.2;}100%{opacity:0.25;}}
+  @keyframes twinkle{
+    0%{opacity:0.4;}
+    100%{opacity:0.8;}
+  }
 
   /* 💌 Sobre */
   .envelope{
     position:relative;
-    width:260px;
-    height:190px;
+    width:230px;
+    height:160px;
     background:linear-gradient(180deg,#ff8fb5,#ff6b8a);
     border-radius:10px;
     box-shadow:0 10px 25px rgba(255,107,138,0.35);
@@ -92,13 +73,13 @@
     top:60%;
     left:50%;
     transform:translate(-50%,-50%);
-    font-size:32px;
+    font-size:30px;
     text-shadow:0 0 8px rgba(255,107,138,0.6);
     animation:heartbeat 1.5s infinite ease-in-out alternate;
   }
   @keyframes heartbeat{
     0%{transform:translate(-50%,-50%) scale(0.9);}
-    100%{transform:translate(-50%,-50%) scale(1.2);}
+    100%{transform:translate(-50%,-50%) scale(1.15);}
   }
 
   /* 💖 Carta */
@@ -107,51 +88,47 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%) scale(0);
-    background:rgba(255,255,255,0.12);
+    background:rgba(255,255,255,0.1);
     border:2px solid rgba(255,182,193,0.4);
-    border-radius:16px;
-    box-shadow:0 10px 30px rgba(255,107,138,0.35);
-    max-width:650px;
-    width:90%;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(255,107,138,0.3);
+    width:85%;
+    max-width:420px;
     text-align:center;
-    padding:60px 40px;
+    padding:40px 30px;
     z-index:3;
     opacity:0;
-    transition:all 1.2s ease;
+    transition:all 1s ease;
   }
   .card.open{transform:translate(-50%,-50%) scale(1);opacity:1;}
 
-  .emoji-hearts{text-align:center;margin-bottom:20px;}
+  .emoji-hearts{text-align:center;margin-bottom:10px;}
   .emoji-hearts span{
-    font-size:90px;
-    margin:0 15px;
+    font-size:60px;
+    margin:0 10px;
     animation:beat 1.5s infinite alternate ease-in-out;
-    filter:drop-shadow(0 0 12px rgba(255,107,138,0.7));
+    filter:drop-shadow(0 0 10px rgba(255,107,138,0.6));
   }
   @keyframes beat{0%{transform:scale(0.9);opacity:0.8;}100%{transform:scale(1.15);opacity:1;}}
 
-  h1{font-size:32px;margin:0 0 12px;}
+  h1{font-size:26px;margin:0 0 10px;color:#fff;}
   p.lead{
-    font-size:20px;
+    font-size:17px;
     opacity:0.95;
-    margin:0 0 18px;
-    line-height:1.6;
+    margin:0 auto;
+    max-width:360px;
+    line-height:1.5;
     white-space:pre-line;
-    text-shadow:0 0 8px rgba(255,255,255,0.1);
     overflow:hidden;
-    border-right:.12em solid rgba(255,255,255,0.4);
-    animation: typing 14s steps(80,end) forwards, blink 0.9s infinite;
+    text-align:center;
+    animation: fadeIn 3s ease forwards;
   }
-  @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
-  }
-  @keyframes blink {
-    0%, 100% { border-color: transparent }
-    50% { border-color: rgba(255,255,255,0.4) }
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(10px);}
+    to{opacity:1;transform:translateY(0);}
   }
 
-  footer{margin-top:16px;font-size:15px;opacity:0.9;}
+  footer{margin-top:12px;font-size:13px;opacity:0.85;}
 
   .floating-hearts,.emoji-confetti{
     position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:1;
@@ -164,7 +141,7 @@
     100%{transform:translateY(-10vh) scale(1.3) rotate(360deg);opacity:0;}
   }
   .emoji{
-    position:absolute;animation:fall linear forwards;font-size:24px;user-select:none;
+    position:absolute;animation:fall linear forwards;font-size:22px;user-select:none;
   }
   @keyframes fall{
     0%{transform:translateY(-10vh) rotate(0deg);opacity:1;}
@@ -174,12 +151,8 @@
 </head>
 <body>
 
-<!-- 🌠 12 capas de estrellas -->
-<div class="stars"></div><div class="stars2"></div><div class="stars3"></div>
-<div class="stars4"></div><div class="stars5"></div><div class="stars6"></div>
-<div class="stars7"></div><div class="stars8"></div><div class="stars9"></div>
-<div class="stars10"></div><div class="stars11"></div><div class="stars12"></div>
-
+<!-- ✨ Estrellas -->
+<div class="stars"></div>
 <div class="floating-hearts" id="hearts"></div>
 <div class="emoji-confetti" id="confetti"></div>
 
@@ -189,23 +162,18 @@
 <!-- 💖 Carta -->
 <div class="card" id="card">
   <div class="emoji-hearts"><span>💖</span><span>💖</span></div>
-  <h1>Mi princesa hermosa 💞</h1>
-  <p class="lead" id="mensaje">
-En cada estrella que brilla en el cielo, veo un reflejo de ti ✨
+  <h1>Para mi princesa 💌</h1>
+  <p class="lead">
+Tu sonrisa ilumina mi mundo 🌸  
+Tu voz es mi calma, tu amor mi refugio 💗  
 
-Tu sonrisa ilumina mis días, tu voz calma mi alma, 
-y tu amor le da sentido a todo lo que soy 🌸
+Eres la razón de mis días felices,  
+la melodía que acompaña mi corazón cada noche ✨  
 
-Eres mi sueño más bonito, 
-mi razón de sonreír sin motivo,
-mi paz en los días grises
-y mi inspiración cada amanecer 🌅
+Gracias por existir, por ser mi paz,  
+y por llenar mi vida con tu ternura infinita 💫  
 
-Te amo más de lo que las palabras pueden decir,
-más de lo que el universo puede contener 💫💗
-
-Gracias por existir, por ser tú,
-y por hacer de mi vida algo tan hermoso como tu mirada 💐
+Te amo más de lo que las estrellas pueden brillar 🌙  
   </p>
   <footer>— Con todo mi amor, <strong>Tu Yisus 💖</strong></footer>
 </div>
@@ -219,7 +187,7 @@ y por hacer de mi vida algo tan hermoso como tu mirada 💐
   const confettiContainer=document.getElementById('confetti');
   const card=document.getElementById('card');
   const envelope=document.getElementById('envelope');
-  const emojis=["🦖","🐣","🌸","🧸","✨","🩷","🦖","💞"];
+  const emojis=["🦖","🐣","🌸","🧸","✨","🩷","💞"];
   let confettiInterval;
 
   function openLetter(){
@@ -239,7 +207,7 @@ y por hacer de mi vida algo tan hermoso como tu mirada 💐
   });
 
   function lanzarCorazones(){
-    for(let i=0;i<15;i++){
+    for(let i=0;i<10;i++){
       setTimeout(()=>{
         const heart=document.createElement('span');
         heart.innerHTML='💗';
@@ -247,13 +215,13 @@ y por hacer de mi vida algo tan hermoso como tu mirada 💐
         heart.style.animationDuration=(4+Math.random()*3)+'s';
         heartsContainer.appendChild(heart);
         setTimeout(()=>heart.remove(),7000);
-      },i*200);
+      },i*150);
     }
   }
 
   function lanzarConfetti(){
-    for(let i=0;i<40;i++){
-      crearEmoji(i*100);
+    for(let i=0;i<25;i++){
+      crearEmoji(i*80);
     }
   }
 
@@ -264,7 +232,7 @@ y por hacer de mi vida algo tan hermoso como tu mirada 💐
       emoji.innerText=emojis[Math.floor(Math.random()*emojis.length)];
       emoji.style.left=Math.random()*100+'vw';
       emoji.style.animationDuration=(3+Math.random()*4)+'s';
-      emoji.style.fontSize=(18+Math.random()*24)+'px';
+      emoji.style.fontSize=(18+Math.random()*20)+'px';
       confettiContainer.appendChild(emoji);
       setTimeout(()=>emoji.remove(),7000);
     },delay);
