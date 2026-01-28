@@ -24,67 +24,95 @@
     flex-direction:column;
   }
 
-  /* 🌌 Fondo con muchas estrellas intermitentes */
-  .stars, .stars2, .stars3 {
+  /* 🌌 Fondo con seis capas de estrellas intermitentes */
+  .stars, .stars2, .stars3, .stars4, .stars5, .stars6 {
     position:fixed;
     width:100%;
     height:100%;
+    top:0;
+    left:0;
     background-repeat:repeat;
     background-size:contain;
     z-index:0;
-    top:0;
-    left:0;
   }
 
-  /* Capa 1: estrellas grandes y lentas */
+  /* Estrellas grandes */
   .stars {
     background-image:
-      radial-gradient(2px 2px at 10% 20%, #fff, transparent),
-      radial-gradient(1.5px 1.5px at 30% 80%, #fff, transparent),
-      radial-gradient(2px 2px at 70% 50%, #fff, transparent),
-      radial-gradient(1.5px 1.5px at 90% 10%, #fff, transparent),
-      radial-gradient(2px 2px at 50% 70%, #fff, transparent);
-    animation: twinkle1 8s infinite ease-in-out alternate;
+      radial-gradient(2.5px 2.5px at 10% 20%, #fff, transparent),
+      radial-gradient(2.5px 2.5px at 70% 60%, #fff, transparent),
+      radial-gradient(2.5px 2.5px at 30% 90%, #fff, transparent),
+      radial-gradient(2px 2px at 90% 10%, #fff, transparent),
+      radial-gradient(2.5px 2.5px at 50% 70%, #fff, transparent);
+    animation: twinkle1 8s infinite alternate ease-in-out;
+    opacity: 0.8;
+  }
+
+  /* Estrellas medianas */
+  .stars2 {
+    background-image:
+      radial-gradient(2px 2px at 15% 30%, #fff, transparent),
+      radial-gradient(1.8px 1.8px at 60% 40%, #fff, transparent),
+      radial-gradient(2px 2px at 80% 75%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 40% 10%, #fff, transparent),
+      radial-gradient(1.8px 1.8px at 25% 85%, #fff, transparent);
+    animation: twinkle2 6s infinite alternate ease-in-out;
+    opacity: 0.7;
+  }
+
+  /* Estrellas pequeñas */
+  .stars3 {
+    background-image:
+      radial-gradient(1.5px 1.5px at 5% 50%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 95% 80%, #fff, transparent),
+      radial-gradient(1px 1px at 80% 25%, #fff, transparent),
+      radial-gradient(1px 1px at 45% 65%, #fff, transparent),
+      radial-gradient(1.2px 1.2px at 30% 15%, #fff, transparent),
+      radial-gradient(1.2px 1.2px at 60% 90%, #fff, transparent);
+    animation: twinkle3 5s infinite alternate ease-in-out;
     opacity: 0.6;
   }
 
-  /* Capa 2: estrellas medianas */
-  .stars2 {
+  /* ✨ Nuevas capas extras ✨ */
+  .stars4 {
     background-image:
-      radial-gradient(1.5px 1.5px at 15% 30%, #fff, transparent),
-      radial-gradient(1.2px 1.2px at 60% 40%, #fff, transparent),
-      radial-gradient(1.5px 1.5px at 80% 75%, #fff, transparent),
-      radial-gradient(1.2px 1.2px at 40% 10%, #fff, transparent),
-      radial-gradient(1.2px 1.2px at 25% 85%, #fff, transparent);
-    animation: twinkle2 6s infinite ease-in-out alternate;
+      radial-gradient(1px 1px at 12% 12%, #fff, transparent),
+      radial-gradient(1px 1px at 78% 18%, #fff, transparent),
+      radial-gradient(1px 1px at 45% 85%, #fff, transparent),
+      radial-gradient(1px 1px at 62% 72%, #fff, transparent),
+      radial-gradient(1px 1px at 92% 45%, #fff, transparent);
+    animation: twinkle4 4s infinite alternate ease-in-out;
     opacity: 0.5;
   }
 
-  /* Capa 3: estrellas pequeñas y rápidas */
-  .stars3 {
+  .stars5 {
     background-image:
-      radial-gradient(1px 1px at 5% 50%, #fff, transparent),
-      radial-gradient(1px 1px at 95% 80%, #fff, transparent),
-      radial-gradient(1px 1px at 80% 25%, #fff, transparent),
-      radial-gradient(1px 1px at 45% 65%, #fff, transparent),
-      radial-gradient(1px 1px at 30% 15%, #fff, transparent),
-      radial-gradient(1px 1px at 60% 90%, #fff, transparent);
-    animation: twinkle3 4s infinite ease-in-out alternate;
+      radial-gradient(0.8px 0.8px at 25% 60%, #fff, transparent),
+      radial-gradient(1px 1px at 15% 85%, #fff, transparent),
+      radial-gradient(1px 1px at 40% 25%, #fff, transparent),
+      radial-gradient(1px 1px at 75% 55%, #fff, transparent),
+      radial-gradient(0.8px 0.8px at 85% 35%, #fff, transparent);
+    animation: twinkle5 3.5s infinite alternate ease-in-out;
+    opacity: 0.45;
+  }
+
+  .stars6 {
+    background-image:
+      radial-gradient(0.6px 0.6px at 50% 50%, #fff, transparent),
+      radial-gradient(0.8px 0.8px at 10% 70%, #fff, transparent),
+      radial-gradient(0.8px 0.8px at 85% 15%, #fff, transparent),
+      radial-gradient(1px 1px at 55% 30%, #fff, transparent),
+      radial-gradient(1px 1px at 35% 90%, #fff, transparent);
+    animation: twinkle6 2.8s infinite alternate ease-in-out;
     opacity: 0.4;
   }
 
-  @keyframes twinkle1 {
-    0% {opacity: 0.5;}
-    100% {opacity: 0.9;}
-  }
-  @keyframes twinkle2 {
-    0% {opacity: 0.3;}
-    100% {opacity: 0.8;}
-  }
-  @keyframes twinkle3 {
-    0% {opacity: 0.2;}
-    100% {opacity: 0.7;}
-  }
+  @keyframes twinkle1 { 0%{opacity:0.4;}100%{opacity:1;} }
+  @keyframes twinkle2 { 0%{opacity:0.3;}100%{opacity:0.9;} }
+  @keyframes twinkle3 { 0%{opacity:0.2;}100%{opacity:0.8;} }
+  @keyframes twinkle4 { 0%{opacity:0.2;}100%{opacity:0.7;} }
+  @keyframes twinkle5 { 0%{opacity:0.1;}100%{opacity:0.6;} }
+  @keyframes twinkle6 { 0%{opacity:0.05;}100%{opacity:0.5;} }
 
   /* 💌 Botón tipo sobre */
   .envelope{
@@ -196,9 +224,13 @@
 </head>
 <body>
 
+<!-- 🌠 Cielo con seis capas -->
 <div class="stars"></div>
 <div class="stars2"></div>
 <div class="stars3"></div>
+<div class="stars4"></div>
+<div class="stars5"></div>
+<div class="stars6"></div>
 
 <div class="floating-hearts" id="hearts"></div>
 <div class="emoji-confetti" id="confetti"></div>
@@ -232,11 +264,9 @@
     musica.play();
     lanzarCorazones();
     lanzarConfetti();
-    // Mantener confetti cayendo continuamente
     confettiInterval = setInterval(lanzarConfetti, 4000);
   }
 
-  // 💗 Si el usuario toca la pantalla, cae más confetti y corazones
   document.body.addEventListener("click", ()=>{
     if(card.classList.contains('open')){
       lanzarCorazones();
