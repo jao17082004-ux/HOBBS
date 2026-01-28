@@ -112,13 +112,17 @@
   }
   @keyframes beat{0%{transform:scale(0.9);opacity:0.8;}100%{transform:scale(1.15);opacity:1;}}
 
-  h1{font-size:26px;margin:0 0 10px;color:#fff;}
+  h1{
+    font-size:26px;
+    margin:0 0 15px;
+    color:#fff;
+  }
   p.lead{
     font-size:17px;
     opacity:0.95;
     margin:0 auto;
     max-width:360px;
-    line-height:1.5;
+    line-height:1.6;
     white-space:pre-line;
     overflow:hidden;
     text-align:center;
@@ -129,7 +133,7 @@
     to{opacity:1;transform:translateY(0);}
   }
 
-  footer{margin-top:12px;font-size:13px;opacity:0.85;}
+  footer{margin-top:15px;font-size:13px;opacity:0.85;}
 
   /* 💕 Confeti y corazones flotantes */
   .floating-hearts,.emoji-confetti{
@@ -178,21 +182,18 @@
 
 <!-- 💖 Carta -->
 <div class="card" id="card">
-  <div class="emoji-hearts"><span>💖</span><span>💖</span></div>
   <h1>Para mi princesa 💌</h1>
   <p class="lead">
-Tu sonrisa ilumina mi mundo 🌸  
-Tu voz es mi calma, tu amor mi refugio 💗  
+Mi niña hermosa, solo quiero decirte que me haces muy feliz.  
+Desde que llegaste a mi, todo tiene más sentido y más color.  
+Me encanta el hecho de hablar contigo, reírme contigo y tenerte cerca.  
+Eres mi persona favorita y piensoen ti más de lo que imaginas.  
 
-Eres la razón de mis días felices,  
-la melodía que acompaña mi corazón cada noche ✨  
-
-Gracias por existir, por ser mi paz,  
-y por llenar mi vida con tu ternura infinita 💫  
-
-Te amo más de lo que las estrellas pueden brillar 🌙  
+Gracias por todo lo que haces y por cómo eres conmigo.  
+No necesito nada más que saber que estás bien y que me quieres para ser feliz.  
+Te amo muchísimo, mi princesa💖
   </p>
-  <footer>— Con todo mi amor, <strong>Tu Yisus 💖</strong></footer>
+  <footer>— Con todo mi amor, <strong>Yisus 💖</strong></footer>
 </div>
 
 <!-- 🎶 Música -->
@@ -249,11 +250,11 @@ Te amo más de lo que las estrellas pueden brillar 🌙
       emoji.classList.add('emoji');
       emoji.innerText=emojis[Math.floor(Math.random()*emojis.length)];
 
-      // Evitar zona central (para que no caiga sobre la carta)
+      // Evitar zona central
       let posX;
       do {
         posX = Math.random() * 100;
-      } while (posX > 35 && posX < 65); // deja libre el centro (35%-65%)
+      } while (posX > 35 && posX < 65); // deja libre el centro
 
       emoji.style.left = posX + 'vw';
       emoji.style.animationDuration = (3 + Math.random() * 4) + 's';
