@@ -88,41 +88,32 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%) scale(0);
-    background:linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,182,193,0.12));
-    border:2px solid rgba(255,182,193,0.5);
+    background:rgba(255,255,255,0.08); /* más translúcido */
+    border:2px solid rgba(255,182,193,0.35);
     border-radius:20px;
-    box-shadow:0 10px 30px rgba(255,107,138,0.3);
+    box-shadow:0 10px 30px rgba(255,107,138,0.25);
     width:85%;
     max-width:420px;
     text-align:center;
-    padding:40px 30px;
+    padding:35px 25px;
     z-index:3;
     opacity:0;
     transition:all 1s ease;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(6px);
   }
   .card.open{transform:translate(-50%,-50%) scale(1);opacity:1;}
 
-  .emoji-hearts{text-align:center;margin-bottom:10px;}
-  .emoji-hearts span{
-    font-size:60px;
-    margin:0 10px;
-    animation:beat 1.5s infinite alternate ease-in-out;
-    filter:drop-shadow(0 0 10px rgba(255,107,138,0.6));
-  }
-  @keyframes beat{0%{transform:scale(0.9);opacity:0.8;}100%{transform:scale(1.15);opacity:1;}}
-
   h1{
-    font-size:26px;
-    margin:0 0 15px;
+    font-size:24px;
+    margin:0 0 12px;
     color:#fff;
   }
   p.lead{
-    font-size:17px;
-    opacity:0.95;
+    font-size:16px;
+    color:rgba(255,255,255,0.9);
     margin:0 auto;
-    max-width:360px;
-    line-height:1.6;
+    max-width:340px;
+    line-height:1.5;
     white-space:pre-line;
     overflow:hidden;
     text-align:center;
@@ -133,7 +124,7 @@
     to{opacity:1;transform:translateY(0);}
   }
 
-  footer{margin-top:15px;font-size:13px;opacity:0.85;}
+  footer{margin-top:12px;font-size:12px;opacity:0.8;}
 
   /* 💕 Confeti y corazones flotantes */
   .floating-hearts,.emoji-confetti{
@@ -185,12 +176,13 @@
   <h1>Para mi princesa 💌</h1>
   <p class="lead">
 Hola niña hermosa, solo quiero recordarte que me haces muy feliz.  
-Desde el dia que llegaste a mi vida, todo tiene más sentido y más color.  
-Me encanta el hecho de hablar contigo, reírme contigo y tenerte cerca.  
-Cada momento que comparto contigo es y sera siempre muy especial e inolvidable. 
+Desde el día que llegaste a mi vida, todo tiene más sentido y más color.  
+Me encanta hablar contigo, reírme contigo y tenerte cerca.  
+Cada momento contigo es y será siempre muy especial e inolvidable.  
+
 Gracias por todo lo que haces y por cómo eres conmigo.  
 No necesito nada más que saber que estás bien y que me quieres para ser feliz.  
-Te amo con todo mi ser, mi princesa💖
+Te amo con todo mi ser, mi princesa 💖
   </p>
   <footer>— Con amor, <strong>Yisus 💖</strong></footer>
 </div>
@@ -204,7 +196,7 @@ Te amo con todo mi ser, mi princesa💖
   const confettiContainer=document.getElementById('confetti');
   const card=document.getElementById('card');
   const envelope=document.getElementById('envelope');
-  const emojis=["🦖","🐣","🌸","🦖","🧸","✨","🩷","🦖"];
+  const emojis=["🦖","🐣","🌸","🧸","✨","🩷","🦖"];
   let confettiInterval;
 
   function openLetter(){
@@ -265,5 +257,3 @@ Te amo con todo mi ser, mi princesa💖
 </script>
 </body>
 </html>
-
-
