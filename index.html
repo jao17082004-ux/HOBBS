@@ -88,8 +88,8 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%) scale(0);
-    background:rgba(255,255,255,0.08); /* más translúcido */
-    border:2px solid rgba(255,182,193,0.35);
+    background:rgba(255,255,255,0.06); /* más transparente */
+    border:2px solid rgba(255,182,193,0.3);
     border-radius:20px;
     box-shadow:0 10px 30px rgba(255,107,138,0.25);
     width:85%;
@@ -99,18 +99,43 @@
     z-index:3;
     opacity:0;
     transition:all 1s ease;
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(8px);
   }
   .card.open{transform:translate(-50%,-50%) scale(1);opacity:1;}
 
+  /* 💫 Animación del título */
   h1{
     font-size:24px;
     margin:0 0 12px;
     color:#fff;
+    position:relative;
+    animation: fadeInTitle 2s ease forwards;
   }
+  @keyframes fadeInTitle {
+    0% {opacity:0; transform:translateY(-10px);}
+    100% {opacity:1; transform:translateY(0);}
+  }
+  /* ✨ Brillo en el título */
+  h1::after{
+    content:"";
+    position:absolute;
+    left:-50%;
+    top:0;
+    width:200%;
+    height:100%;
+    background:linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+    transform:translateX(-100%);
+    animation: shine 3.5s infinite linear;
+  }
+  @keyframes shine {
+    0%{transform:translateX(-100%);}
+    100%{transform:translateX(100%);}
+  }
+
+  /* Texto */
   p.lead{
     font-size:16px;
-    color:rgba(255,255,255,0.9);
+    color:rgba(255,255,255,0.92);
     margin:0 auto;
     max-width:340px;
     line-height:1.5;
@@ -228,7 +253,7 @@ Te amo con todo mi ser, mi princesa 💖
     }
   }
 
-  // 🎊 Confeti solo en los bordes (no sobre la carta)
+  // 🎊 Confeti solo en los bordes
   function lanzarConfetti(){
     for(let i=0;i<25;i++){
       crearEmoji(i*80);
@@ -257,3 +282,4 @@ Te amo con todo mi ser, mi princesa 💖
 </script>
 </body>
 </html>
+
