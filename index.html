@@ -1,236 +1,208 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Te amo mi princesa</title>
-  <style>
-    :root {
-      --bg: #0f1226;
-      --accent: #ff6b8a;
-      --text: #fff;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Te amo mi princesa</title>
+<style>
+  :root{
+    --bg:#0f1226;
+    --accent:#ff6b8a;
+    --text:#fff;
+  }
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at 10% 10%, #1a1430 0%, var(--bg) 50%);
-      overflow: hidden;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-    }
+  html,body{
+    height:100%;
+    margin:0;
+    font-family:"Poppins",sans-serif;
+    background: radial-gradient(circle at 10% 10%, #1a1430 0%, var(--bg) 50%);
+    color:var(--text);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    flex-direction:column;
+  }
 
-    /* 🌌 Fondo de estrellas */
-    .stars {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      background: radial-gradient(2px 2px at 20% 30%, #fff, transparent),
-                  radial-gradient(1.5px 1.5px at 80% 70%, #fff, transparent),
-                  radial-gradient(1.2px 1.2px at 50% 80%, #fff, transparent),
-                  radial-gradient(1.8px 1.8px at 10% 90%, #fff, transparent),
-                  radial-gradient(1.5px 1.5px at 70% 20%, #fff, transparent);
-      animation: twinkle 6s infinite alternate ease-in-out;
-      opacity: 0.6;
-    }
+  /* 🌌 Fondo con estrellas */
+  .stars{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:0;
+    background:
+      radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 80% 70%, #fff, transparent),
+      radial-gradient(1.2px 1.2px at 50% 80%, #fff, transparent),
+      radial-gradient(1.8px 1.8px at 10% 90%, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 70% 20%, #fff, transparent);
+    animation: twinkle 6s infinite alternate ease-in-out;
+    opacity:0.6;
+  }
+  @keyframes twinkle{
+    0%{opacity:0.4;}
+    100%{opacity:0.8;}
+  }
 
-    @keyframes twinkle {
-      0% { opacity: 0.4; }
-      100% { opacity: 0.8; }
-    }
+  /* 💌 Botón tipo sobre */
+  .envelope{
+    position:relative;
+    width:160px;
+    height:110px;
+    background:linear-gradient(180deg,#ff8fb5,#ff6b8a);
+    border-radius:8px;
+    box-shadow:0 6px 20px rgba(255,107,138,0.3);
+    cursor:pointer;
+    transition:transform 0.3s ease;
+    z-index:2;
+  }
+  .envelope:hover{
+    transform:scale(1.05);
+  }
 
-    /* 💌 Carta */
-    .card {
-      position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,107,138,0.12));
-      border: 2px solid rgba(255,182,193,0.4);
-      border-radius: 14px;
-      box-shadow: 0 10px 30px rgba(255,107,138,0.3);
-      max-width: 520px;
-      width: 100%;
-      text-align: center;
-      overflow: hidden;
-      transform-origin: top;
-      transform: rotateX(0deg);
-      transition: transform 1.5s ease;
-      z-index: 2;
-      padding: 40px 36px 30px;
-    }
+  /* Triángulo del sobre */
+  .envelope::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(135deg,#ffb6c1,#ff6b8a);
+    clip-path:polygon(0 0, 100% 0, 50% 55%);
+  }
 
-    .card.open {
-      animation: openLetter 1.3s forwards ease-out;
-    }
+  /* 💖 Carta (mensaje oculto) */
+  .card{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:rgba(255,255,255,0.1);
+    border:2px solid rgba(255,182,193,0.4);
+    border-radius:14px;
+    box-shadow:0 10px 30px rgba(255,107,138,0.3);
+    max-width:520px;
+    width:90%;
+    text-align:center;
+    padding:40px 30px;
+    z-index:3;
+    opacity:0;
+    transition:all 1.2s ease;
+  }
 
-    @keyframes openLetter {
-      0% { transform: rotateX(90deg); opacity: 0; }
-      100% { transform: rotateX(0deg); opacity: 1; }
-    }
+  .card.open{
+    transform:translate(-50%,-50%) scale(1);
+    opacity:1;
+  }
 
-    /* 💖 Corazones */
-    .emoji-hearts {
-      text-align: center;
-      margin-bottom: 10px;
-    }
+  /* Corazones decorativos */
+  .emoji-hearts{
+    text-align:center;
+    margin-bottom:15px;
+  }
+  .emoji-hearts span{
+    font-size:80px;
+    margin:0 15px;
+    animation:beat 1.5s infinite alternate ease-in-out;
+    filter:drop-shadow(0 0 12px rgba(255,107,138,0.7));
+  }
+  @keyframes beat{
+    0%{transform:scale(0.9);opacity:0.8;}
+    100%{transform:scale(1.15);opacity:1;}
+  }
 
-    .emoji-hearts span {
-      font-size: 80px;
-      margin: 0 15px;
-      animation: bigPulse 1.8s infinite ease-in-out alternate;
-      filter: drop-shadow(0 0 15px rgba(255,107,138,0.6));
-    }
+  h1{font-size:28px;margin:0 0 8px;}
+  p.lead{font-size:18px;opacity:0.95;margin:0 0 18px;}
+  footer{margin-top:16px;font-size:13px;opacity:0.8;}
 
-    @keyframes bigPulse {
-      0% { transform: scale(0.9); opacity: 0.8; }
-      100% { transform: scale(1.15); opacity: 1; }
-    }
-
-    h1 {
-      font-size: 28px;
-      margin: 0 0 8px;
-    }
-
-    p.lead {
-      margin: 0 0 18px;
-      font-size: 18px;
-      opacity: 0.95;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 12px 22px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #ff6b8a, #ff8fb5);
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      box-shadow: 0 6px 18px rgba(255,107,138,0.3);
-      transition: transform 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    footer {
-      margin-top: 16px;
-      font-size: 13px;
-      opacity: 0.8;
-    }
-
-    /* Floating hearts */
-    .floating-hearts {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 1;
-    }
-
-    .floating-hearts span {
-      position: absolute;
-      color: #ff6b8a;
-      font-size: 20px;
-      animation: floatUp linear forwards;
-      opacity: 0.8;
-    }
-
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) scale(0.5) rotate(0deg); opacity: 0.8; }
-      100% { transform: translateY(-10vh) scale(1.3) rotate(360deg); opacity: 0; }
-    }
-
-    /* Confetti emojis */
-    .emoji-confetti {
-      position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 3;
-    }
-
-    .emoji {
-      position: absolute;
-      animation: fall linear forwards;
-      font-size: 24px;
-      user-select: none;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
-    }
-  </style>
+  /* Efectos animados */
+  .floating-hearts,.emoji-confetti{
+    position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:1;
+  }
+  .floating-hearts span{
+    position:absolute;color:#ff6b8a;font-size:20px;animation:floatUp linear forwards;opacity:0.8;
+  }
+  @keyframes floatUp{
+    0%{transform:translateY(100vh) scale(0.5) rotate(0deg);opacity:0.8;}
+    100%{transform:translateY(-10vh) scale(1.3) rotate(360deg);opacity:0;}
+  }
+  .emoji{
+    position:absolute;animation:fall linear forwards;font-size:24px;user-select:none;
+  }
+  @keyframes fall{
+    0%{transform:translateY(-10vh) rotate(0deg);opacity:1;}
+    100%{transform:translateY(110vh) rotate(720deg);opacity:0;}
+  }
+</style>
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="floating-hearts" id="hearts"></div>
-  <div class="emoji-confetti" id="confetti"></div>
 
-  <!-- 💌 Carta -->
-  <div class="card" id="loveCard">
-    <div class="emoji-hearts">
-      <span>💖</span><span>💖</span>
-    </div>
-    <h1>Te amo mucho</h1>
-    <p class="lead">Mi princesa hermosa 🌸 — gracias por existir.<br>Eres mi mundo.</p>
-    <a class="btn" id="surpriseBtn" href="#!" onclick="startSurprise()">Abrir sorpresa</a>
-    <footer>— Con cariño, <strong>Jesús 💖</strong></footer>
-  </div>
+<div class="stars"></div>
+<div class="floating-hearts" id="hearts"></div>
+<div class="emoji-confetti" id="confetti"></div>
 
-  <!-- 🎶 Música -->
-  <audio id="musica" src="Zootopia.mp3" preload="auto"></audio>
+<!-- 💌 Botón tipo sobre -->
+<div class="envelope" id="envelope" onclick="openLetter()"></div>
 
-  <script>
-    const musica = document.getElementById('musica');
-    const heartsContainer = document.getElementById('hearts');
-    const confettiContainer = document.getElementById('confetti');
-    const card = document.getElementById('loveCard');
-    const emojis = ["💗","🦖","🐣","🌸","🧸","✨","💕","🩷","🦖","💞"];
+<!-- 💖 Carta oculta -->
+<div class="card" id="card">
+  <div class="emoji-hearts"><span>💖</span><span>💖</span></div>
+  <h1>Te amo mucho</h1>
+  <p class="lead">Mi princesa hermosa 🌸 — gracias por existir.<br>Eres mi mundo.</p>
+  <footer>— Con cariño, <strong>Jesús 💖</strong></footer>
+</div>
 
-    function startSurprise() {
-      musica.play();
-      lanzarCorazones();
-      lanzarConfetti();
-      abrirCarta();
+<!-- 🎶 Música -->
+<audio id="musica" src="Zootopia.mp3" preload="auto"></audio>
+
+<script>
+  const musica=document.getElementById('musica');
+  const heartsContainer=document.getElementById('hearts');
+  const confettiContainer=document.getElementById('confetti');
+  const card=document.getElementById('card');
+  const envelope=document.getElementById('envelope');
+  const emojis=["💗","🦖","🐣","🌸","🧸","✨","💕","🩷","🦖","💞"];
+
+  function openLetter(){
+    envelope.style.display='none';
+    card.classList.add('open');
+    musica.play();
+    lanzarCorazones();
+    lanzarConfetti();
+  }
+
+  function lanzarCorazones(){
+    for(let i=0;i<25;i++){
+      setTimeout(()=>{
+        const heart=document.createElement('span');
+        heart.innerHTML='💗';
+        heart.style.left=Math.random()*100+'vw';
+        heart.style.animationDuration=(4+Math.random()*3)+'s';
+        heartsContainer.appendChild(heart);
+        setTimeout(()=>heart.remove(),7000);
+      },i*200);
     }
+  }
 
-    function abrirCarta() {
-      card.classList.add("open");
+  function lanzarConfetti(){
+    for(let i=0;i<60;i++){
+      crearEmoji(i*120);
     }
+  }
 
-    function lanzarCorazones() {
-      for (let i = 0; i < 25; i++) {
-        setTimeout(() => {
-          const heart = document.createElement("span");
-          heart.innerHTML = "💗";
-          heart.style.left = Math.random() * 100 + "vw";
-          heart.style.animationDuration = 4 + Math.random() * 3 + "s";
-          heartsContainer.appendChild(heart);
-          setTimeout(() => heart.remove(), 7000);
-        }, i * 200);
-      }
-    }
-
-    function lanzarConfetti() {
-      for (let i = 0; i < 70; i++) {
-        crearEmoji(i * 100);
-      }
-    }
-
-    function crearEmoji(delay) {
-      setTimeout(() => {
-        const emoji = document.createElement("div");
-        emoji.classList.add("emoji");
-        emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
-        emoji.style.left = Math.random() * 100 + "vw";
-        emoji.style.animationDuration = 3 + Math.random() * 4 + "s";
-        emoji.style.fontSize = 20 + Math.random() * 20 + "px";
-        confettiContainer.appendChild(emoji);
-        setTimeout(() => emoji.remove(), 7000);
-      }, delay);
-    }
-  </script>
+  function crearEmoji(delay){
+    setTimeout(()=>{
+      const emoji=document.createElement('div');
+      emoji.classList.add('emoji');
+      emoji.innerText=emojis[Math.floor(Math.random()*emojis.length)];
+      emoji.style.left=Math.random()*100+'vw';
+      emoji.style.animationDuration=(3+Math.random()*4)+'s';
+      emoji.style.fontSize=(20+Math.random()*20)+'px';
+      confettiContainer.appendChild(emoji);
+      setTimeout(()=>emoji.remove(),7000);
+    },delay);
+  }
+</script>
 </body>
 </html>
